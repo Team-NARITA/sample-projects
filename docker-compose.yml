@@ -7,7 +7,20 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./front-end:/sample-projects/front-end
+    working_dir: /sample-projects/front-end
+    container_name: front-end
     tty: true
     stdin_open: true
+    ports:
+     - "3000:3000"
     environment:
       - CHOKIDAR_USEPOLLING=true
+  back-end:
+    image: openjdk:17-slim
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./back-end:/sample-projects/back-end
+    working_dir: /sample-projects/back-end
+    container_name: back-end
+    tty: true
