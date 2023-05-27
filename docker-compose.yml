@@ -10,6 +10,7 @@ services:
       - "3000:3000"
     volumes:
       - ./front-end:/sample-projects/front-end
+    working_dir: /sample-projects/front-end
     tty: true
     stdin_open: true
     environment:
