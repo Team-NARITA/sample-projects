@@ -5,9 +5,21 @@ services:
     build:
       context: ./front-end
       dockerfile: Dockerfile
+    container_name: front-end
+    ports:
+      - "3000:3000"
     volumes:
       - ./front-end:/sample-projects/front-end
     tty: true
     stdin_open: true
     environment:
       - CHOKIDAR_USEPOLLING=true
+  back-end:
+    image: openjdk:17-slim
+    container_name: back-end
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./back-end:/sample-projects/back-end
+    working_dir: /sample-projects/back-end
+    tty: true
