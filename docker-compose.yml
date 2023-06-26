@@ -5,7 +5,7 @@ services:
     build:
       context: ./front-end
       dockerfile: Dockerfile
-    container_name: front-end
+    container_name: front-end-sample
     ports:
       - "3000:3000"
     volumes:
@@ -17,7 +17,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
   back-end:
     image: openjdk:17-slim
-    container_name: back-end
+    container_name: back-end-sample
     ports:
       - "8080:8080"
     volumes:
